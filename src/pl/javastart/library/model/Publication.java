@@ -58,3 +58,5 @@ public abstract class Publication implements Serializable {
         return Objects.hash(year, title, publisher);
     }
 }
+
+// Test Issue
