@@ -53,6 +53,8 @@ public abstract class Publication implements Serializable {
                 Objects.equals(publisher, that.publisher);
     }
 
+    public abstract String toCsv();
+
     @Override
     public int hashCode() {
         return Objects.hash(year, title, publisher);
