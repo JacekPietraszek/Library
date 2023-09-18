@@ -1,2 +1,2 @@
 # Library
-# Project of my library 
+# Project of my library from course javastart.pl
