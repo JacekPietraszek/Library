@@ -1,2 +1,2 @@
 # Library
-# Project of my library from course javastart.pl
+# Project of my library git pufrom course javastart.pl
