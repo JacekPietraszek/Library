@@ -12,7 +12,9 @@ import pl.javastart.library.model.Book;
 import pl.javastart.library.model.Library;
 import pl.javastart.library.model.Magazine;
 import pl.javastart.library.model.Publication;
+import pl.javastart.library.model.comparator.AlphabeticalComparator;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 public class LibraryControl {
@@ -80,7 +82,7 @@ public class LibraryControl {
             } catch (NoSuchOptionException e) {
                 printer.printLine(e.getMessage());
             } catch (InputMismatchException e) {
-                printer.printLine("Wprwadzono wartość, która nie jest liczbą, podaj ponownie: ");
+                printer.printLine("Wprowadzono wartość, która nie jest liczbą, podaj ponownie: ");
             }
         }
         return option;
@@ -98,8 +100,14 @@ public class LibraryControl {
     }
 
     private void printBooks() {
-        Publication[] publications = library.getPublications();
+        Publication[] publications = getSortedPublication();
         printer.printBooks(publications);
+    }
+
+    private Publication[] getSortedPublication() {
+        Publication[] publications = library.getPublications();
+        Arrays.sort(publications, new AlphabeticalComparator());
+        return publications;
     }
 
     private void addMagazine() {
@@ -114,7 +122,7 @@ public class LibraryControl {
     }
 
     private void printMagazines() {
-        Publication[] publications = library.getPublications();
+        Publication[] publications = getSortedPublication();
         printer.printMagazines(publications);
     }
 

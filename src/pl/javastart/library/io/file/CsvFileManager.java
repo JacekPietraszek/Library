@@ -22,6 +22,7 @@ public class CsvFileManager implements FileManager {
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
                 Publication publication = createObjectFromString(line);
+                library.addPublication(publication);
             }
         } catch (FileNotFoundException e) {
             throw new DataImportException("Brak pliku " + FILE_NAME);
